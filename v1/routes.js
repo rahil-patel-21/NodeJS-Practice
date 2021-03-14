@@ -1,7 +1,6 @@
-const http = require('http');
 const fs = require('fs');
 
-const server = http.createServer((req,res) => {
+const routeHandler = (req, res) => {
     const url = req.url;
     if(url === '/') {
         res.write("HELLO");
@@ -31,8 +30,11 @@ const server = http.createServer((req,res) => {
         });
     }
    return  res.end();
+};
 
-});
-
-server.listen(3000);
-//
+// module.exports = routeHandler;
+// module.exports = {
+//     "handler" : routeHandler
+// };
+// module.exports.handler = routeHandler;
+exports.handler = routeHandler;
